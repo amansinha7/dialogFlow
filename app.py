@@ -73,7 +73,7 @@ def processRequest(req):
   #  return "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + city + "')"
 
 
-def makeWebhookResult(data):
+def makeWebhookResult(req):
     #query = data.get('query')
     #if query is None:
      #   return {}
