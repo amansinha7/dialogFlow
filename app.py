@@ -21,6 +21,7 @@ install_aliases()
 from urllib.parse import urlparse, urlencode
 from urllib.request import urlopen, Request
 from urllib.error import HTTPError
+from keras.layers.core import Dense, Dropout, SpatialDropout1D
 
 import json
 import os
