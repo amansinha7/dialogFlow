@@ -50,69 +50,57 @@ def webhook():
 
 
 def processRequest(req):
-    #if req.get("result").get("action") != "yahooWeatherForecast":
-        #return {}
-    #baseurl = "https://query.yahooapis.com/v1/public/yql?"
-    #yql_query = makeYqlQuery(req)
-   # if yql_query is None:
-       # return {}
-   # yql_url = baseurl + urlencode({'q': yql_query}) + "&format=json"
-   # result = urlopen(yql_url).read()
-   # data = json.loads(result)
-    res = makeWebhookResult(req)
+    if req.get("result").get("action") != "yahooWeatherForecast":
+        return {}
+    baseurl = "https://query.yahooapis.com/v1/public/yql?"
+    yql_query = makeYqlQuery(req)
+    if yql_query is None:
+        return {}
+    yql_url = baseurl + urlencode({'q': yql_query}) + "&format=json"
+    result = urlopen(yql_url).read()
+    data = json.loads(result)
+    res = makeWebhookResult(data)
     return res
 
 
-#def makeYqlQuery(req):
-   # result = req.get("result")
-    #parameters = result.get("parameters")
-   # city = parameters.get("geo-city")
-    #if city is None:
-       # return None
-
-  #  return "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + city + "')"
-
-
-def makeWebhookResult(req):
-    #query = data.get('query')
-    #if query is None:
-     #   return {}
-
-    #result = query.get('results')
-    #if result is None:
-     #   return {}
-
-    #channel = result.get('channel')
-    #if channel is None:
-     #   return {}
-
-    #item = channel.get('item')
-    #location = channel.get('location')
-    #units = channel.get('units')
-    #if (location is None) or (item is None) or (units is None):
-      #  return {}
-
-    #condition = item.get('condition')
-    #if condition is None:
-     #   return {}
-
-    # print(json.dumps(item, indent=4))
+def makeYqlQuery(req):
     result = req.get("result")
     parameters = result.get("parameters")
     city = parameters.get("geo-city")
-    if city = 'NY':
-        speech = "Today the weather in " + city + " is 10 Degrees C"
-    if city = 'New Delhi':
-        speech = "Today the weather in " + city + " is 35 Degrees C"
-    if city = 'Mumbai':
-        speech = "Today the weather in " + city + " is 30 Degrees C"
-    if city = 'Hyderabad':
-        speech = "Today the weather in " + city + " is 38 Degrees C"
-    if city = 'London':
-        speech = "Today the weather in " + city + " is 5 Degrees C"
-    else
-        speech = "Today the weather in " + city + " is 15 Degrees C"
-        
+    if city is None:
+        return None
+
+    return "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + city + "')"
+
+
+def makeWebhookResult(data):
+    query = data.get('query')
+    if query is None:
+        return {}
+
+    result = query.get('results')
+    if result is None:
+        return {}
+
+    channel = result.get('channel')
+    if channel is None:
+        return {}
+
+    item = channel.get('item')
+    location = channel.get('location')
+    units = channel.get('units')
+    if (location is None) or (item is None) or (units is None):
+        return {}
+
+    condition = item.get('condition')
+    if condition is None:
+        return {}
+
+    # print(json.dumps(item, indent=4))
+
+    speech = "Today the weather in " + location.get('city') + ": " + condition.get('text') + \
+             ", And the temperature is " + condition.get('temp') + " " + units.get('temperature')
+
     print("Response:")
     print(speech)
 
@@ -124,7 +112,8 @@ def makeWebhookResult(req):
         "source": "apiai-weather-webhook-sample"
     }
 
+
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
     print("Starting app on port %d" % port)
-    app.run(debug=False, port=port, host='0.0.0.0')
+	app.run(debug=False, port=port, host='0.0.0.0')
