@@ -1,2 +1,4 @@
 Flask==0.10.1
 future==0.16.0
+keras==2.1.5.22
+tensorflow==1.6.0
