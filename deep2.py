@@ -55,14 +55,22 @@ def webhook():
     maxlen = 0
     i=1
     for line in fin:
+        print("After loading File 2.1")
         _, sent = line.strip().split("\t")
+        print("After loading File 2.2")
         words = [x.lower() for x in nltk.word_tokenize(sent)]
+        print("After loading File 2.3")
         #print("i=",i)
         #i=i+1
         if len(words) > maxlen:
+            print("After loading File 2.4")
             maxlen = len(words)
+            print("After loading File 2.5")
         for word in words:
+            print("After loading File 2.6")
             counter[word] += 1
+            print("After loading File 2.9")
+    print("After loading File 2.10")
     fin.close()
     print("After loading File 2")
     word2index = collections.defaultdict(int)
