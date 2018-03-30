@@ -1,0 +1,2 @@
+BILLING_ISSUE_1,1,27376484,Check if the version of OKLRABLB.pls is 120.41.12020000.9 or higher. If not apply the latest cumulative patch.
+BILLING_ISSUE_2,2,27027135,Check if the version of OKLPEGBB.pls is 120.2.12020000.3 and version of OKLREGBB.pls is 120.19.12020000.4.1220300.2 or higher
