@@ -1,0 +1,30 @@
+1	Advance billing program failing when creating invoices in future due to GL date
+1	Advance billing program fails when creating invoices in future due to GL date
+1	Advance billing program errors when creating invoices in future due to GL date
+1	Advance billing program erroring when creating invoices in future due to GL date
+1	Advance billing program failing when invoices are in future due to GL date
+1	Advance billing program fails when invoices are in future due to GL date
+1	Advance billing program errors when invoices are in future due to GL date
+1	Advance billing program erroring when invoices are in future due to GL date
+1	Advance billing program failing when invoices are future date
+1	Advance billing program fails when invoices are future date
+1	Advance billing program failing when invoices are future date
+1	Advance billing program errors when invoices are future date
+2	Evergreen billing program is not creating stream
+2	Evergreen billing program is not creating stream for all contracts when there is some error in other contracts
+2	Evergreen billing program fails to create stream
+2	Evergreen billing program fails to create stream for all contracts when there is some error in other contracts
+2	Evergreen billing program is not generating billing stream
+2	Evergreen billing program is not generating billing transactions
+2	Evergreen billing program is failing when one of the contract has error and it is not processing further records
+2	Evergreen billing program fails when one of the contract has error and it is not processing further records
+2	Evergreen billing program does not generate billing when one of the contract has error and other contracts have no errors
+2	Evergreen billing program fails to create stream when one of the contract has error and it is not processing further records
+2	Evergreen billing program fails to create billing stream when one of the contract has error and it is not processing further records
+2	Evergreen billing program is not creating billing stream when one of the contract has error and it is not processing further records
+2	Evergreen billing program does not complete successfully when one of the contract has error and it is not processing further records
+1	Advance billing program erroring when invoices in future date
+1	Advance billing program does not complete with success when invoices are future date
+2	Evergreen billing program is not creating billing transactions when one of the contract has error and it is not processing further records
+2	Evergreen billing program does not complete with success when one of the contract has error and it is not processing further records
+1	Advance billing program failing when invoices are future dated
