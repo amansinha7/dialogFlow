@@ -7,6 +7,7 @@ from urllib.error import HTTPError
 from urllib.parse import urlencode, urlparse
 from urllib.request import Request, urlopen
 
+#import matplotlib.pyplot as plt
 import nltk
 import numpy as np
 from flask import Flask, make_response, request
@@ -50,6 +51,7 @@ def webhook():
 
     counter = collections.Counter()
     fin = open(INPUT_FILE, "r")
+    print("After loading File")
     maxlen = 0
     i=1
     for line in fin:
@@ -62,13 +64,13 @@ def webhook():
         for word in words:
             counter[word] += 1
     fin.close()
-
+    print("After loading File 2")
     word2index = collections.defaultdict(int)
     for wid, word in enumerate(counter.most_common(VOCAB_SIZE)):
         word2index[word[0]] = wid + 1
     vocab_sz = len(word2index) + 1
     index2word = {v:k for k, v in word2index.items()}
-
+    print("After loading File 3")
     xs, ys = [], []
     fin = open(INPUT_FILE, "r")
     for line in fin:
@@ -78,6 +80,7 @@ def webhook():
         wids = [word2index[word] for word in words]
         xs.append(wids)
     fin.close()
+    print("After loading File 4")
     X = pad_sequences(xs, maxlen=maxlen)
     Y = np_utils.to_categorical(ys)
 
