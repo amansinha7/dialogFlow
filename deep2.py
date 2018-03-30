@@ -7,7 +7,6 @@ from urllib.error import HTTPError
 from urllib.parse import urlencode, urlparse
 from urllib.request import Request, urlopen
 
-import matplotlib.pyplot as plt
 import nltk
 import numpy as np
 from flask import Flask, make_response, request
