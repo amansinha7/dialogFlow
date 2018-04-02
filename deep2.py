@@ -138,7 +138,13 @@ def webhook():
     result = req.get("result")
     parameters = result.get("parameters")
     text = parameters.get("text")
-
+    pSuite = parameters.get("product-suite")
+    product = parameters.get("product")
+    Module = parameters.get("Module")
+    print("Product Suite : ", pSuite)
+    print("Product : ", product)
+    print("Module : ", Module)
+    print("Issue :", text)
     line1="0," + text
     #Todo: line1 = "0,<<user input>>"
 
@@ -164,6 +170,8 @@ def webhook():
             max = value
             index2 = index
     print('Max ', max,' index2 ',index2)
+    if max < 0.6:
+        index2 = -1
     SOLUTION_FILE = "data/keys.txt"
     fin2 = open(SOLUTION_FILE, "r")
     i=0
