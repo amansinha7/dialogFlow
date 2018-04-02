@@ -170,7 +170,7 @@ def webhook():
             max = value
             index2 = index
     print('Max ', max,' index2 ',index2)
-    if max < 0.6:
+    if max < 0.55:
         index2 = -1
     SOLUTION_FILE = "data/keys.txt"
     fin2 = open(SOLUTION_FILE, "r")
