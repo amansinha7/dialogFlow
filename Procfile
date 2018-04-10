@@ -1,1 +1,1 @@
-web: python deep2.py
+web: python app.py
