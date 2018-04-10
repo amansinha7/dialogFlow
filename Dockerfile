@@ -9,4 +9,4 @@ COPY . .
 
 ENV PORT=5000
 EXPOSE 5000
-CMD [ "python", "./deep2.py" ]
+CMD [ "python", "./app.py" ]
